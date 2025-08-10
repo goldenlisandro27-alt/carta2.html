@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Para Alejandra Belén 💌</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+    .carta {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        max-width: 500px;
+        animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+        color: #ff4d6d;
+    }
+    p {
+        font-size: 18px;
+        color: #444;
+        line-height: 1.5;
+    }
+    .botones {
+        margin-top: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+        transition: all 0.3s ease;
+    }
+    .si {
+        background: #ff4d6d;
+        color: white;
+    }
+    .no {
+        background: #ccc;
+        color: black;
+        position: relative;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(30px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    .corazon {
+        position: absolute;
+        color: rgba(255,0,76,0.6);
+        font-size: 24px;
+        animation: flotar 6s infinite ease-in-out;
+    }
+    @keyframes flotar {
+        0% { transform: translateY(0) rotate(0);}
+        50% { transform: translateY(-100px) rotate(20deg);}
+        100% { transform: translateY(0) rotate(0);}
+    }
+    .mensaje-final {
+        display: none;
+        font-size: 20px;
+        color: #ff4d6d;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="carta">
+        <h1>💌 Para Alejandra Belén 💌</h1>
+        <p>
+            Querida <b>Alejandra Belén</b>,<br><br>
+            Desde hace un tiempo, cada momento contigo se ha vuelto especial.
+            Tu sonrisa tiene ese algo que ilumina mis días, tus palabras me calman
+            y tu mirada… bueno, tu mirada hace que todo a mi alrededor deje de importar.<br><br>
+            No sé si fue el destino, la casualidad o la suerte, pero desde que llegaste,
+            mi corazón encontró un nuevo ritmo. Uno que late más fuerte cuando estás cerca,
+            y que se acelera solo con pensar en ti.<br><br>
+            Por eso hoy quiero atreverme a preguntarte algo…<br><br>
+            <b>¿Quieres ser mi novia?</b>
+        </p>
+        <div class="botones">
+            <button class="si" onclick="aceptar()">💖 Sí 💖</button>
+            <button class="no" onmouseover="moverNo()">🙈 No 🙈</button>
+        </div>
+        <div class="mensaje-final" id="mensajeFinal">
+            ¡Sabía que dirías que sí! ❤️<br>
+            Me haces la persona más feliz del mundo 😍
+        </div>
+    </div>
+
+    <script>
+        function crearCorazon() {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.innerHTML = "❤️";
+            corazon.style.left = Math.random() * window.innerWidth + "px";
+            corazon.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(corazon);
+            setTimeout(() => corazon.remove(), 6000);
+        }
+
+        function aceptar() {
+            document.getElementById("mensajeFinal").style.display = "block";
+            setInterval(crearCorazon, 300);
+        }
+
+        function moverNo() {
+            const noBtn = document.querySelector(".no");
+            noBtn.style.position = "absolute";
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+            noBtn.style.left = Math.random() * (window.innerWidth - 50) + "px";
+        }
+    </script>
+</body>
+</html>
